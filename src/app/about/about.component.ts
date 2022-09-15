@@ -27,7 +27,7 @@ export class AboutComponent implements OnInit {
     this.building = awesom.faCity;
     this.email = awesom.faMailBulk;
     this.mobile = awesom.faMobile;
-    this.birthday = awesom.faBirthdayCake;
+    this.birthday = awesom.faLanguage;
     this.badge = awesom.faGraduationCap;
     this.home = awesom.faLaptopHouse;
   }
