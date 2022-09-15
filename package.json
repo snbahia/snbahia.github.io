@@ -30,6 +30,8 @@
     "aos": "^2.3.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "link": "^1.5.1",
+    "npm": "^8.19.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "typed.js": "^2.0.11",
@@ -38,7 +40,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.2",
-    "@angular/cli": "~11.0.2",
+    "@angular/cli": "^11.0.2",
     "@angular/compiler-cli": "~11.0.1",
     "@types/jasmine": "~3.6.0",
     "@types/jquery": "^3.5.4",
