@@ -10,8 +10,8 @@ import { locale as french } from '../shared/i18n/fr';
 })
 export class SkillsComponent implements OnInit {
   skills:any={
-    technologies:[{name:"Python",percent:90,remark:'excellent'}, {name:"Angular",percent:90,remark:'excellent'},{name:"Java",percent:80,remark:'very-good'},{name:"SQL",percent:70,remark:'good'}],
-    tools:[{name:"Git",percent:90,remark:'excellent'},{name:"Office",percent:90,remark:'excellent'},{name:"Jira",percent:80,remark:'very-good'},{name:"SolidWorks",percent:70,remark:'good'},{name:"Linux",percent:70,remark:'good'}],
+    technologies:[{name:"Java",percent:90,remark:'excellent'},{name:"Angular",percent:90,remark:'excellent'},{name:"Python",percent:80,remark:'very-good'},{name:"SQL",percent:80,remark:'very-good'}],
+    tools:[{name:"Git",percent:90,remark:'excellent'},{name:"Jira",percent:90,remark:'excellent'},{name:"Linux",percent:70,remark:'good'},{name:"SolidWorks",percent:70,remark:'good'}],
     methodologies:[{name:"Agile",percent:90,remark:'excellent'},{name:"Scrum",percent:90,remark:'excellent'},{name:"Waterfall",percent:60,remark:'decent'}]
   };
 

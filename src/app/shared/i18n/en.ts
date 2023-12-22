@@ -10,7 +10,7 @@ export const locale = {
             'years': 'Years',
             'graduation': "Master's degree 2 IT",
             'myResearch': 'CDI contract search',
-            'researchDescription': 'I am looking for an innovative company to work at where I can continue to hone my skills under the guidance of senior engineers.',
+            'researchDescription': 'I am looking to advance my technical skills at a cutting-edge company, and I am excited to make an immediate impact wherever I land.',
             'and':'and',
             'followMeOn':'Follow me on',
         },

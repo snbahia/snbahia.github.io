@@ -1,5 +1,19 @@
 export const experiencesEn = [
     {
+        title: "Software Developer",
+        company: 'Morgan Stanley',
+        period: "Feb. 2023 - Present",
+        technologies: 'Java, MongoDB, Linux OS, Kafka, Jira',
+        missions: [
+            "Modernized a large project by migrating from Apache Ivy/Ant to Gradle and updating dependencies.",
+            "Led the development of a full-stack web application using Java, Spring Boot and Angular in the tech stack.",
+            "Implemented a caching service to Commodities system which reduced execution time by 10%.",
+            "Completed a 13 week-long Technology Analyst training program related to messaging services, modernization techniques, operating systems, etc.",
+            "Used Test Driven Development concepts to write extensive Junit tests in a Spring Boot project."
+        ],
+        detailIsDisplayed: false,
+    },
+    {
         title: "Software Engineer Intern",
         company: 'Morgan Stanley',
         period: "2022 (8 months)",
