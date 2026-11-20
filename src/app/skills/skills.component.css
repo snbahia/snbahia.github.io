@@ -1,79 +1,15 @@
-.bg-lightgray, .skillData-Wrapper {
-    background-color: #ddd;
-}
-.skillData-Wrapper {
-    width: 100%;
-}
-
-#skillgraph {
-  padding: 1em; 
-}
-
-.skill-percent{
-  margin-top: 10px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-}
-
-.skillLabel{
-  width: 100%;
-  margin-top: 10px;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: #050d18d7;
-
-}
-
-.competence-Wrapper{
-  line-height: 0.1 0.7em;
-  height: 12px;
-  width: .1em;
-  float: left;
-  color: white;
-  text-align: center;
-}
-
-.skillData-Wrapper, .label {
-  width: 100%; 
-}
-
-.skillData, .skillData-Wrapper {
-  line-height: 0.1 0.7em;
-  height: 12px;
-  float: left;
-  color: white;
-  text-align: center; 
-}
-
-.excellent{
-  width: 90%;
-}
-
-.very-good{
-  width: 80%;
-}
-
-.good{
-  width: 70%;
-}
-
-.decent{
-  width: 60%;
-}
-
-.average{
-  width: 50%;
-}
-
-.bg-rust {
-    background-color: #149ddd;
-}
-
-a{
-  text-decoration: none;
-}
-
-
-
-
-
+.practice-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.practice { padding: 1.5rem; border: 1px solid #dce4ec; border-radius: .75rem; background: #fff; }
+.practice-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: .8rem; margin-bottom: 1.25rem; font-size: 1.5rem; background: #eaf2fc; }
+.practice-icon[data-tone="teal"] { background: #e7f5f1; }
+.practice-icon[data-tone="violet"] { background: #f0ecfb; }
+h3 { font-size: 1.2rem; color: #173b6c; line-height: 1.4; }
+.practice h3 { margin-bottom: .75rem; }
+.practice p { margin: 0; color: #405466; }
+.toolkit { margin-top: 1.5rem; background: #edf3f7; border-radius: .75rem; padding: 1.75rem; }
+dl { margin: 1.25rem 0 0; display: grid; gap: 1rem; }
+dl div { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+dt { font-weight: 500; color: #526171; }
+dd { margin: 0; }
+@media (max-width: 991px) { .practice-list { grid-template-columns: minmax(0, 1fr); } .practice { padding: 1.25rem; } .practice-icon { margin-bottom: 1rem; } }
+@media (max-width: 767px) { dl div { grid-template-columns: 1fr; gap: .5rem; } .toolkit { padding: 1.25rem; } }

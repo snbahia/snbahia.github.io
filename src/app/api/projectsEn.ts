@@ -1,4 +1,38 @@
-export const projectsEn = [
+export interface PortfolioProject {
+    id: string;
+    name: string;
+    technologies: string;
+    images: { title: string; src: string }[];
+    url: string;
+    detail: string;
+    codeSourceUrl: string;
+    detailIsDisplayed: boolean;
+    summary?: string;
+}
+
+export const projectsEn: PortfolioProject[] = [
+    {
+        id: 'gen-ai-email',
+        name: 'Gen AI Email Tool',
+        technologies: 'Python, Prompt Flow, Outlook',
+        summary: 'I built an assistant for Outlook that helps decide which emails need attention and catches you up on long threads. It uses a sequence of LLM prompts to work through the inbox.',
+        images: [],
+        url: '',
+        detail: '',
+        codeSourceUrl: '',
+        detailIsDisplayed: false,
+    },
+    {
+        id: 'housing-affordability',
+        name: 'Housing Affordability ML Case Study',
+        technologies: 'Linear Regression, Random Forest, Gradient Boosting',
+        summary: 'I wanted to understand what makes some cities harder to afford than others. I brought together housing, economic, and demographic data, then compared several models to see what best explained the differences.',
+        images: [],
+        url: '',
+        detail: '',
+        codeSourceUrl: '',
+        detailIsDisplayed: false,
+    },
     {
         id:"teamTraveler",
         name: "Swarm Robotics Thesis",

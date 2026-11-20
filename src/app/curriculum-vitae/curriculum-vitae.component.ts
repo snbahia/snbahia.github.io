@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import * as awesom from '@fortawesome/free-solid-svg-icons';
+import { Component, OnDestroy } from '@angular/core';
 import { TranslationLoaderService } from '../service/translation-loader.service';
 import { locale as english } from '../shared/i18n/en';
 import { locale as french } from '../shared/i18n/fr';
 import { experiencesFr} from '../api/experiencesFr';
-import { experiencesEn} from '../api/experiencesEn';
+import { experiencesEn, Experience} from '../api/experiencesEn';
+import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-curriculum-vitae',
@@ -12,34 +12,28 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./curriculum-vitae.component.css']
 
 })
-export class CurriculumVitaeComponent implements OnInit {
-  experiences:any=experiencesEn;
-  planeIcon: any ;
-  gameIcon:any;
-  volleyBallIcon:any;
-  brainIcon:any;
-
+export class CurriculumVitaeComponent implements OnDestroy {
+  experiences: Experience[] = experiencesEn.map(experience => ({ ...experience }));
+  private languageSubscription: Subscription;
   constructor(private _translationLoaderService: TranslationLoaderService,private _translateService: TranslateService) {
     this._translationLoaderService.loadTranslations(english, french);
-    this._translateService.onLangChange.subscribe(()=>{
+    this.languageSubscription = this._translateService.onLangChange.subscribe(()=>{
       if(this._translateService.currentLang=="en"){
-        this.experiences=experiencesEn;
+        this.experiences=experiencesEn.map(experience => ({ ...experience }));
       }
       else{
-        this.experiences=experiencesFr;
+        this.experiences=experiencesFr.map(experience => ({ ...experience }));
       }
     });
   }
 
-  ngOnInit(): void {
-    this.planeIcon=awesom.faPlane;
-    this.gameIcon=awesom.faGamepad;
-    this.volleyBallIcon=awesom.faVolleyballBall;
-    this.brainIcon = awesom.faBrain;
+  ngOnDestroy(): void {
+    this.languageSubscription.unsubscribe();
   }
-  
-  detailOnClick(experience:any) {
-    experience.detailIsDisplayed=!experience.detailIsDisplayed;
+
+  detailOnClick(experience: Experience): void {
+    const open = !experience.detailIsDisplayed;
+    this.experiences.forEach(item => item.detailIsDisplayed = item === experience && open);
   }
  
 

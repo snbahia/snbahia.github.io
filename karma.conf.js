@@ -4,8 +4,21 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
+    // CLI 11 clones requests with object spread. Recent Node versions inherit
+    // headers, so expose them as an own property before that clone is made.
+    beforeMiddleware: ['node-request-compat'],
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
+      {
+        'middleware:node-request-compat': ['factory', function () {
+          return function (req, res, next) {
+            Object.defineProperty(req, 'headers', {
+              value: req.headers, enumerable: true, writable: true, configurable: true
+            });
+            next();
+          };
+        }]
+      },
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),

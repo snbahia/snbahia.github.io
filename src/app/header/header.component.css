@@ -36,3 +36,13 @@ li{
 }
 
 
+
+nav { box-shadow: 0 2px 12px #0002; }
+.nav-link { color: #e8f0f5 !important; min-height: 44px; }
+.navbar-toggler { min-width: 44px; min-height: 44px; }
+@media (max-width: 991px) {
+  nav > .container { flex-basis: 100%; }
+  .navbar-collapse { max-height: calc(100svh - 80px); overflow-y: auto; }
+  .navbar-nav { float: none !important; width: 100%; }
+  li { display: block; }
+}

@@ -27,3 +27,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-radio-outer-circle{
     border-color: white!important;
 }
+:root { --page-width: 1600px; --page-gutter: clamp(1rem, 3.5vw, 4rem); }
+* { box-sizing: border-box; }
+body { font-size: 1rem; line-height: 1.65; color: #263747; background: #f8f9fa; }
+section { padding: 4.5rem 0 1.5rem; scroll-margin-top: 4.5rem; }
+main section > .container { width: calc(100% - 2 * var(--page-gutter)); max-width: var(--page-width); padding-inline: 0; }
+h2 { font-size: 2rem; line-height: 1.25; }
+img { max-width: 100%; }
+a { color: #096b9b; }
+.btn-primary { background: #0879b1; border-color: #0879b1; }
+.btn-outline-primary { color: #096b9b; border-color: #096b9b; }
+a:focus-visible, button:focus-visible { outline: 3px solid #eea82b; outline-offset: 4px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 2000; background: white; padding: .75rem 1rem; }
+.skip-link:focus { top: 1rem; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (max-width: 575px) { section { padding-top: 3.5rem; } }

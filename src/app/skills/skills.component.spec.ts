@@ -1,3 +1,4 @@
+import { AppModule } from '../app.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SkillsComponent } from './skills.component';
@@ -8,7 +9,7 @@ describe('CompetencesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillsComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
   });

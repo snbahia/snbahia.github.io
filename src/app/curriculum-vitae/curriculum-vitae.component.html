@@ -2,51 +2,64 @@
     <div class="container">
         <h2><strong>   {{'education.title' | translate}}</strong></h2>
         <span class="bar-title mb-5"></span>
-        <div class="row">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="row cv-layout">
+            <div class="col-lg-4 col-md-6">
                 <h4><strong>{{'education.eductionTitle' | translate}}</strong></h4>
                 <ul class="timeline">
                     <li>
+                        <h5>Master of Science in Computer Science</h5>
+                        <em>University of Texas at Austin · Austin, TX</em>
+                        <p>GPA: 3.9 / 4.0</p>
+                        <p class="year">Expected 2027</p>
+                    </li>
+                    <li>
                         <h5>{{'education.masterDegreeTwo' | translate}}</h5>
                         <em class="font-italic">{{'education.masterDegreeTwoDesc' | translate}}<br> {{'education.university' | translate}}</em>
-                        <p class="year p-2 d-flex justify-content-center">2017 - 2022</p>
+                        <p class="year">2017 - 2022</p>
                     </li>
                     <li>
                         <h5>{{'education.masterDegreeOne' | translate}}</h5>
                         <em class="font-italic">{{'education.masterDegreeOneDesc' | translate}} <br> {{'education.university' | translate}}</em>
-                        <p class="year p-2 d-flex justify-content-center">2017 - 2022</p>
+                        <p class="year">2017 - 2022</p>
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-4 col-md-6">
                 <h4><strong>{{'education.experiencesTitle' | translate}}</strong></h4>
-                <ul class="timeline">
-                    <li *ngFor="let experience of experiences;">
-                        <h5>{{experience.title}}</h5>
-                        <em>{{experience.company}}</em>
-                        <div class="d-flex flex-row">
-                            <p class="year p-2 d-flex justify-content-center">{{experience.period}}</p>
-                            <button (click)="detailOnClick(experience)" type="button"
-                                class="btn btn-primary">
-                                <span *ngIf="!experience.detailIsDisplayed">+</span><span *ngIf="experience.detailIsDisplayed">-</span> {{'education.detail' | translate}}</button>
-                        </div>
-                        <p *ngIf="experience.detailIsDisplayed">
-                            <span *ngFor="let mission of experience.missions;let index = index">
-                                <strong> * </strong>{{mission}} <br> <br>
+                <ul class="experience-list">
+                    <li *ngFor="let experience of experiences; let index = index" class="experience-card" [class.is-open]="experience.detailIsDisplayed">
+                        <button (click)="detailOnClick(experience)" [attr.aria-expanded]="experience.detailIsDisplayed" [attr.aria-controls]="'experience-details-' + index" type="button" class="experience-toggle">
+                            <span class="role-info">
+                                <span class="role-title">{{experience.title.split(' — ')[0]}}</span>
+                                <span class="role-company">{{experience.company}}<span *ngIf="experience.title.includes(' — ')"> · {{experience.title.split(' — ')[1]}}</span></span>
                             </span>
-                            <strong>{{'education.technologies' | translate}}:</strong> {{experience.technologies}}
-                        </p>
+                            <span class="role-period">{{experience.period}}</span>
+                            <span class="role-chevron" aria-hidden="true"></span>
+                        </button>
+                        <p class="experience-highlight">{{experience.summary || experience.missions[0]}}</p>
+                        <div class="experience-details" [id]="'experience-details-' + index" [hidden]="!experience.detailIsDisplayed">
+                            <ul *ngIf="!experience.roles?.length" class="experience-points">
+                                <li *ngFor="let mission of experience.missions">{{mission}}</li>
+                            </ul>
+                            <div *ngFor="let role of experience.roles" class="experience-subrole">
+                                <h6>{{role.title}}</h6>
+                                <div class="experience-meta"><span>{{role.company}}</span><span>{{role.period}}</span></div>
+                                <ul class="experience-points">
+                                    <li *ngFor="let mission of role.missions">{{mission}}</li>
+                                </ul>
+                            </div>
+                            <p class="experience-tools"><strong>{{'education.technologies' | translate}}:</strong> {{experience.technologies}}</p>
+                        </div>
                     </li>
-
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-4 col-md-12 ">
                 <div class="container row">
-                    <div class="aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="">
                         <h4><strong>{{'education.languages' | translate}}</strong></h4>
                         <div class="noProgress langue">
                             <span class=""><img src="assets/images/united-kingdom-flag.png" width="20"
-                                    alt="drapeau du royaume uni"><strong> {{'education.english' | translate}}</strong> <i class="val"> {{'education.fluent' | translate}}</i></span>
+                                    alt="drapeau du royaume uni"><strong> {{'education.english' | translate}}</strong> <i class="val"> Native</i></span>
                         </div>
                         <div class="noProgress langue">
                             <span class=""><img src="assets/images/france-flag.png" width="20"
@@ -56,24 +69,14 @@
                         
                     </div>
                 </div>
-                <div class="container row">
-                    <div class="mt-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                        <h4><strong>{{'education.centerOfInterest' | translate}}</strong></h4>
-                        <div class="noProgress langue">
-                            <span>
-                                <fa-icon [icon]="volleyBallIcon"></fa-icon><strong> {{'education.sport' | translate}}</strong> <i class="val"> Soccer, Basketball</i>
-                            </span>
-                        </div>
-
-                        <div class="noProgress langue">
-                            <span>
-                                <fa-icon [icon]="brainIcon"></fa-icon><strong> University </strong> <i class="val">
-                                    uOttawa Formula SAE team, uOttawa MealCare Org.</i>
-                            </span>
-                        </div>
-                    
-                    </div>
-                </div>
+                <aside class="outside-work" aria-labelledby="outside-work-title">
+                    <h4 id="outside-work-title"><strong>Outside work</strong></h4>
+                    <ul>
+                        <li><span aria-hidden="true">🧗</span><span>Climbing, boxing &amp; soccer</span></li>
+                        <li><span aria-hidden="true">📚</span><span>Reading, especially thrillers</span></li>
+                        <li><span aria-hidden="true">✍️</span><span>Writing</span></li>
+                    </ul>
+                </aside>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+import { AppModule } from '../app.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReferencesComponent } from './references.component';
@@ -8,7 +9,7 @@ describe('ReferencesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReferencesComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
   });
